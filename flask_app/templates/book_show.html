@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Show</title>
+</head>
+<body>
+    <div class="container">
+        <div class="first">
+            <h1>Title: {{book.title}}</h1>
+            <ul>
+                {% for author in book.authors %}
+                <li>{{ author.name }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="second">
+            <form action="/favorites/{{ book.id }}/insert_book" method="post">
+                <h1>Add Book's Favorite</h1>
+                <label for="author">Author: </label>
+                    <select name="author_id">
+                        {% for author in all_authors %}
+                        <option value="{{ author.id }}">{{ author.name }}</option>
+                        {% endfor %}
+                    </select>
+                    <input type="Submit" value="Add">
+            </form>
+        </div>
+        <a href="/">Home</a>
+    </div>
+</body>
+</html>
