@@ -22,7 +22,7 @@ class Author():
 
     @classmethod
     def save_author(cls, data ):
-        query = "INSERT INTO authors ( name , created_at, updated_at ) VALUES ( %(author_name)s , NOW() , NOW() );"
+        query = "INSERT INTO authors ( name ) VALUES ( %(author_name)s );"
         # data is a dictionary that will be passed into the save method from server.py
 
         return connectToMySQL('books_schema').query_db( query, data )
